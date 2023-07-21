@@ -6,10 +6,16 @@
                 <h3>Detail of User</h3>
             </div>
             <div class="card-body">
-                <h4>Book that you created</h4>
                 <p>Total books: {{ $user->books_count }}</p>
                 <p>Total stock: {{ $user->books->sum('quantity') }}</p>
                 <div class="row">
+                    <h4>Your latest book</h4>
+                    <img src="{{ $user->book->cover_url }}"
+                            class="img-thumbnail"
+                            style="width: 200px"/>
+                </div>
+                <div class="row">
+                    <h4>Book that you created</h4>
                     @forelse($user->books as $key => $book)
                     <div class="col-md-2">
                         <img src="{{ $book->cover_url }}"

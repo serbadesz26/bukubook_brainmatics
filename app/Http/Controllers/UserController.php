@@ -60,6 +60,7 @@ class UserController extends Controller
                     ->withCount('books') //number of book rows
                     ->find($id);
         // dd($user);
+        // contoh perbedaan array dan collection
         $array = ['satu', 'dua'];
         // dd($array, collect($array));
         // dd($user->books->sum('quantity'));
