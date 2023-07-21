@@ -54,6 +54,20 @@ class UserController extends Controller
             ->with('success', 'Data Berhasil Ditambahkan!');
     }
 
+    public function show($id)
+    {
+        $user = User::with('books.categories', 'book.categories')
+                    ->withCount('books') //number of book rows
+                    ->find($id);
+        // dd($user);
+        $array = ['satu', 'dua'];
+        // dd($array, collect($array));
+        // dd($user->books->sum('quantity'));
+        return view('user.show', [
+            'user' => $user
+        ]);
+    }
+
     public function edit($id)
     {
         //cek apakah kita sudah menerima id
