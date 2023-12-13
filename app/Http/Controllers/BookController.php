@@ -15,7 +15,7 @@ class BookController extends Controller
     {
         // kodingan datatable
         return response()->json([
-            'key' => 'value'
+            'key' => $this->summary()
         ]);
     }
 
